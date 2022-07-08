@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Raleway', sans-serif;
+    padding: 2em;
+}
+.image-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 350px;
+    gap: 2em;
+}
+.image.portrait{
+    grid-row: span 2;
+}
+.image img{
+    width: 100%;
+    height: 100%;
+}
