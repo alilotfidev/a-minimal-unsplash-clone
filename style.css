@@ -6,12 +6,44 @@
 body{
     font-family: 'Raleway', sans-serif;
     padding: 2em;
+    overflow-x: hidden;
+}
+.search-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+.search-input{
+    width: 50%;
+    padding: 1em;
+    border: none;
+    border-bottom: 2px solid #262626;
+    font-size: .8em;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.search-input:focus{
+    background-color: #262626;
+    color: white;
+    border-radius: 16px;
+}
+.search-form button{
+    background-color: #262626;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 1em;
+    cursor: pointer;
+    margin-left: 2em;
+    font-size: .8em;
 }
 .image-list{
+    max-width: 1400px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 350px;
     gap: 2em;
+    margin: 0 auto;
 }
 .image.portrait{
     grid-row: span 2;
@@ -20,3 +52,4 @@ body{
     width: 100%;
     height: 100%;
 }
+

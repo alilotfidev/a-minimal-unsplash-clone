@@ -1,8 +1,11 @@
 const api = new Api();
 const imageListElement = document.querySelector('.image-list');
+const searchFormElement = document.querySelector('.search-form');
+const searchInputElement = document.querySelector('.search-input');
+const SubmitButtonElement = document.querySelector('.search-form button');
 
 const updateUi = (images) => {
-  console.log(images);
+  imageListElement.innerHTML = '';
   images.forEach((image) => {
     const isPortrait = image.height > image.width ? 'portrait' : '';
     imageListElement.innerHTML += `
@@ -13,11 +16,19 @@ const updateUi = (images) => {
   });
 };
 
-api
-  .searchImages('canada')
-  .then((data) => {
-    updateUi(data.results);
-  })
-  .catch((e) => {
-    console.log(e);
-  });
+searchFormElement.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const searchQuery = searchInputElement.value;
+  SubmitButtonElement.disabled = true;
+  searchInputElement.value = 'Loading...';
+  api
+    .searchImages(searchQuery)
+    .then((data) => {
+      updateUi(data.results);
+      SubmitButtonElement.disabled = false;
+      searchInputElement.value = '';
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+});
