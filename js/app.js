@@ -11,6 +11,7 @@ const updateUi = (images) => {
     imageListElement.innerHTML += `
         <div class="image ${isPortrait}">
             <img src="${image.urls.regular}" alt="${image.alt_description}">
+            <a class="unsplash-link" href="${image.links.html}">View on Unsplash</a>
         </div>
     `;
   });

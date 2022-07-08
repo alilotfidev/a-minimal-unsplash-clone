@@ -48,6 +48,23 @@ body{
 .image.portrait{
     grid-row: span 2;
 }
+.image{
+    position: relative;
+}
+.image::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #262626;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.image:hover::after{
+    opacity: .5;
+}
 .image img{
     width: 100%;
     height: 100%;
@@ -58,6 +75,20 @@ h4{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+a.unsplash-link{
+    display: none;
+    padding: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    color: white;
+    z-index: 2;
+}
+.image:hover a{
+    display: block;
 }
 
 /* responsive */
